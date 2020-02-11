@@ -1,8 +1,8 @@
-import data_pipeline as dp
+import data_modules.data_pipeline as dp
 from textblob import TextBlob
 import pandas as pd
 import re
-from text_classification import *
+from data_modules.text_classification import *
 from keras import backend as K
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split, TimeSeriesSplit

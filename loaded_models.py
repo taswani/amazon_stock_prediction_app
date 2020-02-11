@@ -2,27 +2,16 @@ from joblib import load
 import numpy as np
 import pandas as pd
 from keras.models import load_model
-from data import DataPreparation, Query, result_df, r_squared
+from data_modules.data import DataPreparation, Query, result_df, r_squared
 from app.models import Query as Q
-
-Q = Q.query.order_by('id').first()
-result_df = result_df
-# load classical machine learning model
-classical_model = load('classical_model.joblib')
-# load feed-forward neural network from keras with custom r-squared metric function
-ff_model = load_model('ff_model.h5', custom_objects={'r_squared': r_squared})
-# Importing lstm model in case for later testing
-lstm_model = load_model('lstm_model.h5', custom_objects={'r_squared': r_squared})
-
-# Requires 14x5x1 for LSTM model
 
 def predict(open, high, low, headline, result_df):
     # load classical machine learning model
-    classical_model = load('classical_model.joblib')
+    classical_model = load('./saved_models/classical_model.joblib')
     # load feed-forward neural network from keras with custom r-squared metric function
-    ff_model = load_model('ff_model.h5', custom_objects={'r_squared': r_squared})
+    ff_model = load_model('./saved_models/ff_model.h5', custom_objects={'r_squared': r_squared})
     # Importing lstm model in case for later testing
-    lstm_model = load_model('lstm_model.h5', custom_objects={'r_squared': r_squared})
+    lstm_model = load_model('./saved_models/lstm_model.h5', custom_objects={'r_squared': r_squared}) # Requires 14x5x1 for LSTM model
     dp = DataPreparation(result_df)
     X_train, X_test, y_train, y_test = dp.time_series_split(n=5)
     min_max_scaler = dp.min_max_scaling(X_train, X_test, y_train, y_test, True)
@@ -37,8 +26,3 @@ def predict(open, high, low, headline, result_df):
     ff_prediction = ff_model.predict(scaled_query).reshape(1, -1)
     ff_prediction = min_max_scaler.inverse_transform(ff_prediction)
     return classical_prediction[0][0], ff_prediction[0][0]
-
-# Print statement for checking values
-# c, f = predict(Q.open, Q.high, Q.low, Q.headline, result_df)
-#
-# print(c, f)

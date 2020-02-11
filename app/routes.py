@@ -5,7 +5,7 @@ from app.models import User, Query
 from app.forms import RegistrationForm, LoginForm, EditProfileForm, QueryForm
 from werkzeug.urls import url_parse
 from datetime import datetime
-from data import result_df, r_squared
+from data_modules.data import result_df, r_squared
 from loaded_models import predict
 
 @app.route('/')

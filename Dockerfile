@@ -6,6 +6,8 @@ WORKDIR /home/ml_app
 
 COPY requirements.txt requirements.txt
 RUN python -m venv venv
+RUN apk add --no-cache --virtual .build-deps gcc musl-dev \
+ && pip install --upgrade cython 
 RUN venv/bin/pip install -r requirements.txt
 RUN venv/bin/pip install gunicorn
 

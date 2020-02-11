@@ -1,4 +1,4 @@
-import data_pipeline as dp
+import data_modules.data_pipeline as dp
 from textblob import TextBlob
 
 result_df = dp.prepare_data(dp.price_csv, dp.headline_csv)
