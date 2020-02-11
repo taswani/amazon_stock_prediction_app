@@ -1,5 +1,4 @@
-# ML_capstone
-Amazon Stock Forecasting Project
+# Amazon Stock Prediction Project
 
 In this project, I have set up two models for prediction of Amazon's stock prices based off of headline sentiment and the date, opening price, high, and low values for AMZN on that day.
 
