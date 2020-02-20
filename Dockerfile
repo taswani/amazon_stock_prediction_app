@@ -5,7 +5,7 @@ RUN adduser -D ml_app
 WORKDIR /home/ml_app
 
 COPY requirements.txt requirements.txt
-RUN apk add --no-cache --virtual .build-deps gcc musl-dev \
+RUN apk add --no-cache --virtual .build-deps gcc musl-dev openblas-dev\
  && pip install --upgrade cython
 RUN pip install -r requirements.txt
 RUN pip install gunicorn
