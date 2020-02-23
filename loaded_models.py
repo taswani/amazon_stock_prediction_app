@@ -1,7 +1,7 @@
 from joblib import load
 import numpy as np
 import pandas as pd
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 from data_modules.data import DataPreparation, Query, result_df, r_squared
 from app.models import Query as Q
 
