@@ -34,6 +34,7 @@ print('Model saved')
 # Mean-absolute-error: 0.0052317037178134474, R-squared: 0.9618780612945557, after 200 epochs, lr = .003, n_splits=5
 # Choice of better numbers over slight training variability
 
+# Use of R-squared as a means of measuring variability between models
 # Mean-absolute-error: 0.005896079147027599, R-squared: 0.9513616561889648, after 200 epochs, lr = .003, n_splits=5
 # Stable with sentiment
 

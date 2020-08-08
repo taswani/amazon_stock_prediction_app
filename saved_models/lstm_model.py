@@ -52,6 +52,7 @@ print('Model saved')
 predicted_stock_price = model.predict(test_X)
 predicted_stock_price = min_max_scaler.inverse_transform(predicted_stock_price)
 
+# Use of R-squared as a means of measuring variability between models
 # MSE: 0.012109583243727684, R-squared: 0.9007326364517212 after 200 epochs, learning_rate = 0.0022, and 160 batch size, step size = 14
 print("Mean-absolute-error: ", score[0])
 print("R-squared: ", score[1])
