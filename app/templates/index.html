@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ user.username }}!</h1>
+    <div>
+      <p>Would you like to predict the closing price for Amazon's stock?</p>
+      <p><a href="{{ url_for('query') }}">Prediction</a></p>
+    </div>
+{% endblock %}

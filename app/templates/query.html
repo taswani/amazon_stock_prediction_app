@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Make a prediction!</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.open.label }}<br>
+            {{ form.open(size=32) }}<br>
+            {% for error in form.open.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.high.label }}<br>
+            {{ form.high(size=32) }}<br>
+            {% for error in form.high.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.low.label }}<br>
+            {{ form.low(size=32) }}<br>
+            {% for error in form.low.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.headline.label }}<br>
+            {{ form.headline(cols=50, rows=4) }}<br>
+            {% for error in form.headline.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

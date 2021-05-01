@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Your prediction is here!</h1>
+    <p>Your query was... </p>
+    <p><em>Open:</em> {{ query.open }}</p>
+    <p><em>High:</em> {{ query.high }}</p>
+    <p><em>Low:</em> {{ query.low }}</p>
+    <p><em>Headline:</em> {{ query.headline }}</p>
+    <div>
+      <p>Classical Machine Learning predicts... {{ predictions.close1 }} as the closing price for the day.</p>
+      <p>Deep Learning predicts... {{ predictions.close2 }} as the closing price for the day.</p>
+    </div>
+{% endblock %}
