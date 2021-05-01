@@ -8,3 +8,4 @@ My goal with this project is to compare the architecture and approach between cl
 
 In order to start the application `pip3 install -r requirements.txt` and `flask run` in your terminal or command prompt. You can navigate to localhost:5000 to view the site. After that, create an account and enter your queries!
 
+*There are known issues with Tensorflow and Mac OSX, relating to what TF looks for. I am looking into it to fix the dependency issue*
